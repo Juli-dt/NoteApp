@@ -1,0 +1,54 @@
+.card {
+    border-radius: 10px;
+    background: #E8D07E;
+    width: 268px;
+    height: 250px;
+    margin-left: 100px;
+    margin-top: 100px;
+    padding-top: 1px;
+    z-index: 100; 
+}
+
+.title {
+    border-radius: 4px;
+    background: #FFF;
+    width: 204px;
+    margin-left: 30px;
+    margin-top: 25px;
+    z-index: 100; 
+
+}
+
+.content {
+    width: 241px;
+    height: 87px;
+    border-radius: 10px;
+    background: #FFF;
+    margin-left: 15px;
+    z-index: 100; 
+
+}
+
+.toggle-button {
+  border-radius: 50%;
+    border: #000;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 100; 
+
+  }
+  
+  .toggle-button.active {
+    background-color: green;
+    z-index: 100; 
+
+  }
+  
+  .toggle-button.archived {
+    background-color: red;
+    z-index: 100; 
+
+  }
