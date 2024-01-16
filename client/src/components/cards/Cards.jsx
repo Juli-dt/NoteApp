@@ -1,12 +1,15 @@
 import React from 'react';
 import "./Cards.css"
 import Card from '../card/Card';
-
-const Cards = ({ notes }) => {
+import { getbyId } from '../../actions';
+const Cards = ({ notes, selectedCategory }) => {
   if (!notes || notes.length === 0) {
     return <div class="notFound">Let's write some notes!</div>;
   }
-
+  const filteredNotes = selectedCategory === 'All'
+    ? notes
+    : notes.filter((note) => note.categoryId === selectedCategory);
+  
   return (
     <ul className="cardsList">
       {notes.map((note) => (
@@ -23,4 +26,3 @@ const Cards = ({ notes }) => {
   );
 };
 export default Cards;
-// 

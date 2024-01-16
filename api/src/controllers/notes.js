@@ -1,3 +1,4 @@
+const { and } = require("sequelize");
 const { Note } = require("../db");
 
 const createNote = async (noteData) => {
@@ -89,7 +90,7 @@ const getArchived = async() => {
         })
 
         if (archived.length > 0) {
-            return actives;
+            return archived;
         } else {
             return null; 
         }    } catch (error) {
@@ -101,15 +102,19 @@ const getArchived = async() => {
 
 const deleter = async (noteId) => {
     try {
-        
+        const note = await Note.findByPk(noteId)
+
         const deletedNote = await Note.destroy({
             where: {
                 id: noteId
             }
         })
 
-        deletedNote ? deletedNote : false
-
+if (deletedNote) {
+    return note, deletedNote
+} else {
+    return false
+}
     } catch (error) {
         console.log(error);
         return error.message
@@ -123,7 +128,6 @@ const updater = async (noteId, updatedData) => {
                 id: noteId
             }
         });
-
         return updatedRows;
     } catch (error) {
         console.log(error);
@@ -136,20 +140,20 @@ const updater = async (noteId, updatedData) => {
 
 const toggleNoteStatus = async (id) => {
     try {
-       const elemento = await Note.findByPk(id);
+       const element = await Note.findByPk(id);
    
-       if (!elemento) {
+       if (!element) {
          return { error: 'Elemento no encontrado' };
        }
    
-       await elemento.update({
-         status: elemento.status === 'active' ? 'archived' : 'active',
+       await element.update({
+         status: element.status === 'active' ? 'archived' : 'active',
        });
    
-       return { message: 'Estado actualizado correctamente' };
+       return element;
     } catch (error) {
         console.log(error, error.message);
-       return { error: 'Error al actualizar el estado' };
+       return { error: 'Status could not be updated' };
     }
    }
 

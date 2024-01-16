@@ -91,7 +91,7 @@ const notesByCategory = async (req, res) => {
        return res.status(400).json({ error: response.error });
     }
    
-    return res.status(200).json({ message: response.message });
+    return res.status(200).json(response);
    };
 
 

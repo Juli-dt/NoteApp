@@ -3,7 +3,8 @@ const initialState = {
     actives: [],
     archived: [],
     categories: [],
-    note: []
+    note: [],
+    category: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -123,6 +124,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 categories: [...state.categories, action.payload],
             };
+        
+        case "GET_CATEGORY_BY_ID":
+            return {
+                ...state,
+                category: action.payload
+            }
         case "NOTE_BY_CATEGORY":
             return {
                 ...state,

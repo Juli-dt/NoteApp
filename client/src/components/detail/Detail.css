@@ -1,17 +1,58 @@
-.note {
-    width: 500px;
-    height: 500px;
-    border-radius: 10px;
-    background: #E8D07E;
-    z-index: 1000; 
-}
 
 .conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #85929E;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 100;
-    padding-top: 50px;
+    padding-top: 60px;
+}
+
+.info {
+    background-color: #fff;
+    width: 40%;
+    height: 80%;
+    border-radius: 20px;
+}
+
+.titleDetail {
+    border: 1px solid #000000;
+    width: 30%;
+    height: 20%;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+    margin-left: 35%;
+    align-items: center;
+    
+}
+.titleDetail1 {
+    border: 1px solid #000000;
+    width: 30%;
+    height: 20%;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+    margin-left: 35%;
+    align-items: center;
+    
+}
+
+.back {
+    margin-left: 90%;
+    color: red;
+}
+
+.deleteNote {
+    color: red;
+    margin-right: 80%;
+
+}
+
+
+.edit {
+    margin-bottom: 5px;
 }

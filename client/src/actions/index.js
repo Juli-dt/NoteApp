@@ -172,6 +172,19 @@ export function postCategory(categoryData) {
     };
 }
 
+export function getCategoryById (id){
+    return async (dispatch) => {
+        try {
+            let json = await axios.get(`${endpointCategories}/${id}`)
+            dispatch({
+                type: "GET_CATEGORY_BY_ID",
+                payload: json.data
+            })
+        } catch (error) {
+            console.error("Error getting category", error.message);
+        }
+    }
+}
 //3
 export function notesByCategory(category) {
     return async (dispatch) => {

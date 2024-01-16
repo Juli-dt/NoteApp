@@ -2,7 +2,7 @@ const { Router } = require("express");
 const {addCategory,
         deleter,
         getAllCategories,
-        getCatByName
+        getCatByName,
     } = require("../handlers/categorieshandler")
 
 const categoryRouter = Router()

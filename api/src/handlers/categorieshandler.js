@@ -8,7 +8,7 @@ const getAllCategories = async (req, res) => {
     try {
         const categories = await getCategories()
         if (categories.length === 0) {
-            return res.status(404).send("No se encontraron categorías")
+            return res.status(404).send("nothing here")
         }
         return res.status(200).json(categories)
     } catch (error) {
@@ -20,7 +20,7 @@ const getAllCategories = async (req, res) => {
 const addCategory = async (req, res) => {
     const { name } = req.body
     if (!name) {
-        return res.status(500).send("No está llegando el name")
+        return res.status(500).send("Name is mandatory")
 
     }
     try {
@@ -38,7 +38,7 @@ const deleter = async (req, res) => {
     try {
         const deletedCat = await deleteCategoryById(id)
         if (!deletedCat) {
-            return res.status(404).send("No se encontró la categoría")
+            return res.status(404).send("Category not found")
         }
         return res.status(200).json(deletedCat)
     } catch (error) {
@@ -53,13 +53,9 @@ const getCatByName = async (req, res) => {
 
     try {
         const category = await getCategoryByName(id);
-
-        // Verificar si se encontró la categoría
         if (!category) {
-            return res.status(404).json({ message: "aaaa" });
+            return res.status(404).json({ message: "not categories here" });
         }
-
-        // Enviar la categoría como respuesta
         return res.status(200).json(category);
     } catch (error) {
         console.error(error);

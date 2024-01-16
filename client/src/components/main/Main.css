@@ -1,5 +1,5 @@
-body {
-    background: #A9CAEA
+body, html {
+    background: #A9CAEA; ;
 }
 
 
@@ -41,6 +41,7 @@ body {
     float: right;
     margin-right: 150px;
     height: 70px;
-    width: 150PX;
-
+    width: 150PX;  
+    border-radius: 12px;
+    border-color: transparent;
 }

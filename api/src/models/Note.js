@@ -22,10 +22,7 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM('active', 'archived'),
         defaultValue: 'active',
       },
-      categoryId: {
-        type: DataTypes.UUID,
-        allowNull: true,
-        }    },
+       },
     { createdAt: false, updatedAt: false }
   );
 };

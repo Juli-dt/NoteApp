@@ -23,12 +23,10 @@ const getCategoryByName = async (id) => {
     try {
         const category = await Category.findByPk(id);
 
-        // Verificar si se encontró la categoría
         if (!category) {
-            return "categoría no encontrada";
+            return "category not found";
         }
 
-        // Enviar la categoría como respuesta
         return category;
     } catch (error) {
         console.error(error);
@@ -41,14 +39,14 @@ const deleteCategoryById = async (id) => {
         const category = await Category.findByPk(id);
 
         if (!category) {
-            throw new Error("Categoría no encontrada");
+            throw new Error("Category not found");
         }
 
         await category.destroy();
 
         return category;
     } catch (error) {
-        throw new Error("Error al eliminar la categoría por ID: " + error.message);
+        throw new Error("Could not find that category " + error.message);
     }
 };
 
